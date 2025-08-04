@@ -61,6 +61,16 @@
       // });
     }
   </script>
+  <!-- XSS Demo -->
+<a href="?xss=<script>alert('XSS Test')</script>">Click me</a>
+
+<script>
+  const query = new URLSearchParams(window.location.search);
+  if (query.has("xss")) {
+    document.write(query.get("xss"));
+  }
+</script>
+
 </body>
 </html>
 
